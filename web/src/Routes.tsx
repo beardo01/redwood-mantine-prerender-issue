@@ -10,11 +10,15 @@
 import { Router, Route, Set } from '@redwoodjs/router'
 
 import AppShellLayout from './layouts/AppShellLayout/AppShellLayout'
+import EmptyLayout from './layouts/EmptyLayout/EmptyLayout'
 
 const Routes = () => {
   return (
     <Router>
       <Route path="/home-with-app-shell" page={HomeWithAppShellPage} name="homeWithAppShell" prerender />
+      <Set wrap={EmptyLayout}>
+        <Route path="/home-with-app-shell-and-empty-layout" page={HomeWithAppShellPage} name="homeWithAppShellAndEmptyLayout" prerender />
+      </Set>
       <Set wrap={AppShellLayout}>
         <Route path="/home" page={HomePage} name="home" prerender />
       </Set>
